@@ -11,7 +11,7 @@ print("Welcome to the Number Guessing Game! \n1. You will randomly choose a numb
 
 # Have i set to 0 for counting and compGuess for the random number guessed by the computer
 i = 0
-compGuess = 4#random.randint(1, 100)
+compGuess = random.randint(1, 100)
 
 topPlayers = []
 
