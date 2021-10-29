@@ -2,7 +2,6 @@ def scores(playersName, i):
 
     # list needed to put values in
     players = []
-    substitute = []
 
     # Read all lines into list above
     fixedWidthFile = open("topPlayers.txt", "r")
@@ -36,8 +35,10 @@ def scores(playersName, i):
     #We need to write new scores to the txt file
     fixedWidthFile = open("topPlayers.txt", "w")
     for eachLine in players[0:5]:
-        fixedWidthFile.write(str(eachLine) + "\n")
+        fixedWidthFile.write(eachLine[0] + "         ")
+        fixedWidthFile.write(eachLine[1])
+        fixedWidthFile.write("\n")
+        #fixedWidthFile.write(str(eachLine) + "\n")
 
     fixedWidthFile.close()
     #File assignment review and writing back out
-
