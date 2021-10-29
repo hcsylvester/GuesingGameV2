@@ -40,6 +40,9 @@ while True:
                     print("Your value is high, pick another number! ")
                     i += 1
                 break
+            else:
+                print(f"Sorry {playersName}, that was not a correct input! Remember, only positives! Please try Again!")
+                break
 
         # Congratulates the player for guessing the correct guess and gives how many tries it took
         if int(yourGuess) == compGuess:
@@ -48,11 +51,6 @@ while True:
                   " Not bad!!!")
             # Display top scores
             scores(playersName, i)
-            # Read topplayers.txt
-            # Update the score and sort by lowest number
-            # Display file
-            # Write to file
-            # Allows the player to continue playing again with a new number
             playAgain = input(str("Would you like to play again? Press [Y] for yes and [N] for no! "))
             if playAgain == "Y":
                 i = 0
@@ -61,8 +59,8 @@ while True:
             else:
                 break
 
-    except Exception as e:
-        print(f"Sorry, that was not a correct input! Please try Again! {e} \n")
+    except Exception:
+        print(f"Sorry {playersName}, that was not a correct input! Please try Again! \n")
 
 
 
