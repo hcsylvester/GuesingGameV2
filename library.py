@@ -41,3 +41,30 @@ def scores(playersName, i):
 
     fixedWidthFile.close()
 
+# empty list to be used for storing values
+temporary = []
+
+# Function that shows the updated txt file to the player as they leave
+def endersGame():
+    
+    # Read the file and write to the empty list
+    fixedWidthFile = open("topPlayers.txt", "r")
+    for eachLine in fixedWidthFile.readlines():
+        score = eachLine[0:10].rstrip().lstrip()
+        player = eachLine[10:20].rstrip().lstrip()
+        myList = [score, player]
+        temporary.append(myList)
+
+    # Close file so no mishaps
+    fixedWidthFile.close()
+    
+    # Prints each line of the list to show top scores and player names
+    for eachLine in temporary[0:5]:
+        [score, player] = eachLine
+        score = score + "          "
+        new = score + player
+        temporary.append(new)
+        print(f"{score}{player}")
+
+
+
