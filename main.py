@@ -14,7 +14,7 @@ print("Welcome to the Number Guessing Game! \n1. You will randomly choose a numb
 
 # Have i set to 0 for counting and compGuess for the random number guessed by the computer
 i = 0
-compGuess = random.randint(1, 100)
+compGuess = 4#random.randint(1, 100)
 
 topPlayers = []
 
@@ -32,7 +32,9 @@ while True:
     try:
         yourGuess = (input("Please pick a natural number between 1-100 inclusive: "))
         if str(yourGuess) == "q":
-            print(f"Thank you so much for playing {playersName}, please come again!!!")
+            print(f"Thank you so much for playing {playersName}, please come again!!!"
+                  f"Here are the top scores as you leave!")
+            endersGame()
             exit()
 
         while yourGuess != compGuess:
@@ -52,7 +54,7 @@ while True:
         if int(yourGuess) == compGuess:
             i = i + 1
             print(f"Congratulations, {playersName}! You guessed the same value that I did! Woo! Woo!  It only took you", i, "tries!"
-                  " Not bad!!!")
+                  " Not bad!!! \nThe top scores are: \n")
             # Display top scores with scores function
             scores(playersName, i)
             playAgain = input(str("Would you like to play again? Press [Y] for yes and [N] for no! "))
@@ -61,12 +63,17 @@ while True:
                 compGuess = random.randint(1, 100)
                 continue
             elif playAgain == "N":
-                print(f"Thank you so much for playing {playersName}, please come again!!!")
+                print(f"Thank you so much for playing {playersName}, please come again!!!  "
+                      f"Here are the top scores as you leave!")
+                endersGame()
                 break
             else:
-                print(f"{playersName} that was not a [Y] or [N].  The game will end, thanks for playing.")
+                print(f"{playersName} that was not a [Y] or [N].  The game will end! Here are the "
+                      f"top scores as you leave! Thanks for playing!!!")
+                endersGame()
                 break
 
     except Exception:
         print(f"Sorry {playersName}, that was not a correct input! Please try Again! \n")
+
 
