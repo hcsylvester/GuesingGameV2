@@ -1,11 +1,14 @@
 # Hunter C. Sylvester
-# Purpose: Create a guessing game with values 1-100 inclusive version 2
+# Purpose: Create a guessing game with values 1-100 inclusive.  The player will have unlimited attempts to
+#          guess the correct number. This saves the top 5 player's scores and writes them to a txt file.
+#
 
 # Import modules needed to create this program
 # This helps with creating a random number
 import random
 from library import *
 
+# The instructions of the game
 print("Welcome to the Number Guessing Game! \n1. You will randomly choose a number between 1 and 100 inclusive. \n2. I will let"
       ' you know if it is high, low, or correct. \n3. You can continue by inputting a number or pressing "q" to quit. \n')
 
@@ -15,6 +18,7 @@ compGuess = random.randint(1, 100)
 
 topPlayers = []
 
+# Name of player
 while True:
     playersName = input("Welcome! What is your name? ")
     if playersName == "":
@@ -49,22 +53,20 @@ while True:
             i = i + 1
             print(f"Congratulations, {playersName}! You guessed the same value that I did! Woo! Woo!  It only took you", i, "tries!"
                   " Not bad!!!")
-            # Display top scores
+            # Display top scores with scores function
             scores(playersName, i)
             playAgain = input(str("Would you like to play again? Press [Y] for yes and [N] for no! "))
             if playAgain == "Y":
                 i = 0
                 compGuess = random.randint(1, 100)
                 continue
+            elif playAgain == "N":
+                print(f"Thank you so much for playing {playersName}, please come again!!!")
+                break
             else:
+                print(f"{playersName} that was not a [Y] or [N].  The game will end, thanks for playing.")
                 break
 
     except Exception:
         print(f"Sorry {playersName}, that was not a correct input! Please try Again! \n")
-
-
-
-
-
-
 
